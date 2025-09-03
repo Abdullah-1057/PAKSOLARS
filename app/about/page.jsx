@@ -104,38 +104,24 @@ function TimelineSection() {
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 } flex-col md:space-x-8`}
               >
-                <div className="flex-1 md:text-right md:pr-8">
-                  {index % 2 === 0 && (
-                    <div className="solar-card p-6">
-                      <div className="text-2xl font-bold text-[#FDBA21] mb-2">{milestone.year}</div>
-                      <h3 className="text-xl font-bold text-[#003049] mb-2">{milestone.title}</h3>
-                      <p className="text-gray-600">{milestone.description}</p>
-                    </div>
-                  )}
+                <div className="flex-1">
+                  <div className={`solar-card p-6 ${
+                    index % 2 === 0 ? 'md:text-right md:pr-8' : 'md:text-left md:pl-8'
+                  }`}>
+                    <div className="text-2xl font-bold text-[#FDBA21] mb-2">{milestone.year}</div>
+                    <h3 className="text-xl font-bold text-[#003049] mb-2">{milestone.title}</h3>
+                    <p className="text-gray-600">{milestone.description}</p>
+                  </div>
                 </div>
 
                 {/* Timeline Node */}
                 <motion.div
                   whileHover={{ scale: 1.2 }}
-                  className="w-4 h-4 bg-gradient-to-br from-yellow-400 to-blue-600 rounded-full border-4 border-white shadow-lg z-10 hidden md:block"
+                  className="w-4 h-4 bg-gradient-to-br from-yellow-400 to-blue-600 rounded-full border-4 border-white shadow-lg z-10 hidden md:block flex-shrink-0"
                 />
 
-                <div className="flex-1 md:text-left md:pl-8">
-                  {index % 2 === 1 && (
-                    <div className="solar-card p-6">
-                      <div className="text-2xl font-bold text-[#FDBA21] mb-2">{milestone.year}</div>
-                      <h3 className="text-xl font-bold text-[#003049] mb-2">{milestone.title}</h3>
-                      <p className="text-gray-600">{milestone.description}</p>
-                    </div>
-                  )}
-                  {/* Mobile version */}
-                  {index % 2 === 0 && (
-                    <div className="solar-card p-6 md:hidden">
-                      <div className="text-2xl font-bold text-[#FDBA21] mb-2">{milestone.year}</div>
-                      <h3 className="text-xl font-bold text-[#003049] mb-2">{milestone.title}</h3>
-                      <p className="text-gray-600">{milestone.description}</p>
-                    </div>
-                  )}
+                <div className="flex-1 hidden md:block">
+                  {/* Empty space for alternating layout */}
                 </div>
               </motion.div>
             ))}

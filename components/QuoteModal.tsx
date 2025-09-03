@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Mail, Send, CheckCircle, AlertCircle } from 'lucide-react'
+import { X, Phone, CheckCircle } from 'lucide-react'
 
 interface QuoteModalProps {
   isOpen: boolean
@@ -10,52 +10,19 @@ interface QuoteModalProps {
 }
 
 export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
-  const [email, setEmail] = useState('')
-  const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
-  const [error, setError] = useState('')
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setError('')
-
-    try {
-      // Simulate API call - replace with actual email service
-      const response = await fetch('/api/quote-request', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          timestamp: new Date().toISOString(),
-          source: 'quote_modal'
-        }),
-      })
-
-      if (response.ok) {
-        setIsSuccess(true)
-        setTimeout(() => {
-          onClose()
-          setIsSuccess(false)
-          setEmail('')
-        }, 2000)
-      } else {
-        throw new Error('Failed to submit quote request')
-      }
-    } catch (err) {
-      setError('Failed to submit request. Please try again.')
-    } finally {
-      setIsSubmitting(false)
-    }
+  const handlePhoneCall = (phoneNumber: string) => {
+    // Track the call attempt
+    setIsSuccess(true)
+    setTimeout(() => {
+      onClose()
+      setIsSuccess(false)
+    }, 2000)
   }
 
   const resetModal = () => {
-    setEmail('')
-    setError('')
     setIsSuccess(false)
-    setIsSubmitting(false)
   }
 
   const handleClose = () => {
@@ -99,76 +66,55 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                   className="text-center py-8"
                 >
                   <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold text-green-600 mb-2">Quote Request Sent!</h3>
+                  <h3 className="text-2xl font-bold text-green-600 mb-2">Call Initiated!</h3>
                   <p className="text-gray-600">
-                    We'll send you a personalized solar quote within 24 hours.
+                    Your phone should be dialing now. We'll provide your personalized solar quote.
                   </p>
                 </motion.div>
               ) : (
                 <>
                   <div className="text-center mb-6">
                     <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Mail className="w-8 h-8 text-white" />
+                      <Phone className="w-8 h-8 text-white" />
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900 mb-2">Get Your Free Quote</h2>
                     <p className="text-gray-600">
-                      Enter your email to receive a personalized solar quote for Punjab
+                      Call us directly for a personalized solar quote for Pakistan
                     </p>
                   </div>
 
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Email Address
-                      </label>
-                      <div className="relative">
-                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                        <input
-                          type="email"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          required
-                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                          placeholder="your.email@example.com"
-                          disabled={isSubmitting}
-                        />
-                      </div>
-                    </div>
-
-                    {error && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="flex items-center space-x-2 text-red-600 text-sm"
-                      >
-                        <AlertCircle className="w-4 h-4" />
-                        <span>{error}</span>
-                      </motion.div>
-                    )}
-
-                    <motion.button
-                      type="submit"
-                      disabled={isSubmitting}
+                  <div className="space-y-4">
+                    <motion.a
+                      href="tel:03007960565"
+                      onClick={() => handlePhoneCall('03007960565')}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="w-full bg-gradient-to-r from-yellow-400 to-blue-600 text-white py-3 rounded-lg font-bold flex items-center justify-center space-x-2 hover:shadow-lg transition-shadow duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-gradient-to-r from-yellow-400 to-blue-600 text-white py-4 rounded-lg font-bold flex items-center justify-center space-x-3 hover:shadow-lg transition-shadow duration-200"
                     >
-                      {isSubmitting ? (
-                        <>
-                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                          <span>Sending...</span>
-                        </>
-                      ) : (
-                        <>
-                          <Send className="w-5 h-5" />
-                          <span>Get Free Quote</span>
-                        </>
-                      )}
-                    </motion.button>
-                  </form>
+                      <Phone className="w-5 h-5" />
+                      <div className="text-left">
+                        <div className="text-sm opacity-90">Call M Rizwan Ali</div>
+                        <div className="text-lg">03007960565</div>
+                      </div>
+                    </motion.a>
 
-                  <div className="mt-4 text-center text-xs text-gray-500">
-                    <p>✓ Free consultation ✓ No obligation ✓ Punjab-wide service</p>
+                    <motion.a
+                      href="tel:03019272576"
+                      onClick={() => handlePhoneCall('03019272576')}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="w-full bg-gradient-to-r from-blue-500 to-green-500 text-white py-4 rounded-lg font-bold flex items-center justify-center space-x-3 hover:shadow-lg transition-shadow duration-200"
+                    >
+                      <Phone className="w-5 h-5" />
+                      <div className="text-left">
+                        <div className="text-sm opacity-90">Call M Haris (Office Manager)</div>
+                        <div className="text-lg">03019272576</div>
+                      </div>
+                    </motion.a>
+                  </div>
+
+                  <div className="mt-6 text-center text-xs text-gray-500">
+                    <p>✓ Free consultation ✓ No obligation ✓ Pakistan-wide service</p>
                   </div>
                 </>
               )}

@@ -685,7 +685,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
   const [gstRate, setGstRate] = useState(17) // percentage
   const [deliveryFee, setDeliveryFee] = useState(5000) // PKR
   const [electricityRate, setElectricityRate] = useState(25) // PKR per unit
-  const [sunHoursPerDay, setSunHoursPerDay] = useState(4.5) // hours per day
+  // Removed sunHoursPerDay as we now use fixed calculation: 1kW = 100 units per month
   const [unitPrice, setUnitPrice] = useState(25) // PKR per unit for savings calculation
   
   // Calculate system size from panels
@@ -698,11 +698,12 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
   const gstAmount = Math.max(0, (subtotal * gstRate) / 100)
   const totalCost = Math.max(0, subtotal + gstAmount)
   
-  // Calculate savings with safety checks
-  const monthlyUnitsGenerated = Math.max(0, systemSize * sunHoursPerDay * 30)
+  // Calculate savings with safety checks - More accurate calculation
+  // 1kW system typically generates ~100 units per month (based on 4.5 sun hours)
+  const monthlyUnitsGenerated = Math.max(0, systemSize * 100) // 1kW = 100 units per month
   const monthlySavings = Math.max(0, monthlyUnitsGenerated * unitPrice)
   const yearlySavings = Math.max(0, monthlySavings * 12)
-  const paybackPeriod = (totalCost > 0 && yearlySavings > 0) ? Math.round(totalCost / yearlySavings) : 0
+  const paybackPeriod = (totalCost > 0 && yearlySavings > 0) ? (totalCost / yearlySavings) : 0
 
   return (
     <section className="py-20 bg-white">
@@ -874,7 +875,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
               <div className="bg-purple-50 p-4 rounded-lg">
                 <h4 className="font-semibold text-purple-800 mb-3">Savings Calculation</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
+                  {/* <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
                       Electricity Rate (PKR per unit)
                     </label>
@@ -885,21 +886,8 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
                       className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-purple-500"
                       min="0"
                     />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Sun Hours per Day
-                    </label>
-                    <input
-                      type="number"
-                      value={sunHoursPerDay}
-                      onChange={(e) => setSunHoursPerDay(Math.max(0, Number(e.target.value) || 0))}
-                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-purple-500"
-                      min="0"
-                      step="0.1"
-                    />
-                  </div>
-                  <div>
+                  </div> */}
+                  <div className="md:col-span-2">
                     <label className="block text-sm font-medium text-gray-700 mb-1">
                       Unit Price (PKR) - For Savings Calculation
                     </label>
@@ -910,6 +898,9 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
                       className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-purple-500"
                       min="0"
                     />
+                    <div className="text-xs text-gray-500 mt-1">
+                      Note: 1kW system generates ~100 units per month
+                    </div>
                   </div>
                 </div>
               </div>
@@ -975,7 +966,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
                 </div>
                 <div className="bg-green-100 p-3 rounded-lg">
                   <div className="text-sm text-green-800">
-                    <strong>Note:</strong> 1kW system typically saves ~100 units per month
+                    <strong>Note:</strong> 1kW system generates ~100 units per month ({systemSize.toFixed(2)}kW = {monthlyUnitsGenerated.toFixed(0)} units)
                   </div>
                 </div>
               </div>
@@ -1008,7 +999,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
                   className="bg-gradient-to-r from-purple-50 to-blue-50 p-4 rounded-lg"
                 >
                   <div className="text-2xl font-bold text-purple-600">
-                    {paybackPeriod} years
+                    {paybackPeriod.toFixed(1)} years
                   </div>
                   <div className="text-sm text-gray-600">Payback Period</div>
                 </motion.div>
