@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --solar-blue: #003049;
+  --sun-gold: #FDBA21;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-white text-gray-900;
+  }
+}
+
+@layer components {
+  .solar-gradient {
+    @apply bg-gradient-to-br from-yellow-300 via-yellow-400 to-blue-500;
+  }
+  
+  .solar-text-gradient {
+    @apply bg-gradient-to-r from-yellow-400 to-blue-600 bg-clip-text text-transparent;
+  }
+  
+  .glow-hover {
+    @apply transition-all duration-300 hover:drop-shadow-lg hover:saturate-150;
+  }
+  
+  .solar-card {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg;
+  }
+}
