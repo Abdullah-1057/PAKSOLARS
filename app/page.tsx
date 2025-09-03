@@ -875,18 +875,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
               <div className="bg-purple-50 p-4 rounded-lg">
                 <h4 className="font-semibold text-purple-800 mb-3">Savings Calculation</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Electricity Rate (PKR per unit)
-                    </label>
-                    <input
-                      type="number"
-                      value={electricityRate}
-                      onChange={(e) => setElectricityRate(Math.max(0, Number(e.target.value) || 0))}
-                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-purple-500"
-                      min="0"
-                    />
-                  </div> */}
+
                   <div className="md:col-span-2">
                     <label className="block text-sm font-medium text-gray-700 mb-1">
                       Unit Price (PKR) - For Savings Calculation
