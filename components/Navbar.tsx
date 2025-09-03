@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Sun, Menu, X } from 'lucide-react'
 import QuoteModal from './QuoteModal'
@@ -43,13 +44,19 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-2">
+            <Link href="/" className="flex items-center space-x-3">
               <motion.div
-                whileHover={{ rotate: 180 }}
-                transition={{ duration: 0.5 }}
-                className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3 }}
+                className="w-10 h-10 rounded-full overflow-hidden"
               >
-                <Sun className="w-5 h-5 text-white" />
+                <Image
+                  src="/solarlogo.png"
+                  alt="PAK SOLARS Logo"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-contain"
+                />
               </motion.div>
               <span className="text-xl font-bold text-gray-900">
                 PAK SOLARS

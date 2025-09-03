@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useState, useRef } from 'react'
+import Image from 'next/image'
 import { Sun, Battery, Zap, Activity, Shield, Users, Eye, Leaf, ChevronLeft, ChevronRight, Calculator, Mail, MapPin, Clock, Truck, CheckCircle, ArrowRight, Star, Phone } from 'lucide-react'
 import PageTransitionWrapper from '@/components/PageTransitionWrapper'
 import QuoteModal from '@/components/QuoteModal'
@@ -92,11 +93,24 @@ function HeroSection({ onGetQuote }: { onGetQuote: () => void }) {
           className="mb-6"
         >
           <motion.div
-            animate={{ scale: [1, 1.1, 1] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-24 h-24 mx-auto mb-6 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm"
+            animate={{ 
+              scale: [1, 1.05, 1],
+              rotate: [0, 2, -2, 0]
+            }}
+            transition={{ 
+              duration: 4, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            }}
+            className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-8 bg-gradient-to-br from-white/30 to-white/10 rounded-full flex items-center justify-center backdrop-blur-md p-4 shadow-2xl border border-white/20 logo-glow"
           >
-            <Sun className="w-12 h-12 text-yellow-300" />
+            <Image
+              src="/solarlogo.png"
+              alt="PAK SOLARS Logo"
+              width={120}
+              height={120}
+              className="w-full h-full object-contain drop-shadow-lg"
+            />
           </motion.div>
           
           <h1 className="text-5xl md:text-7xl font-bold mb-4 leading-tight">

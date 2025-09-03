@@ -6,9 +6,14 @@ import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Pak Solar Center - Clean Energy for a Brighter Future',
-  description: 'Harness the power of the sun with Pak Solar Center. Premium solar panels, batteries, and installation services.',
-    generator: 'v0.dev'
+  title: 'PAK SOLARS - Clean Energy for a Brighter Future',
+  description: 'Harness the power of the sun with PAK SOLARS. Premium solar panels, batteries, and installation services across Pakistan.',
+  generator: 'v0.dev',
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
 }
 
 export default function RootLayout({ children }) {

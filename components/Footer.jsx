@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Sun, Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react'
 
 export default function Footer() {
@@ -32,13 +33,19 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-3">
               <motion.div
-                whileHover={{ rotate: 180 }}
-                transition={{ duration: 0.5 }}
-                className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3 }}
+                className="w-10 h-10 rounded-full overflow-hidden"
               >
-                <Sun className="w-5 h-5 text-white" />
+                <Image
+                  src="/solarlogo.png"
+                  alt="PAK SOLARS Logo"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-contain"
+                />
               </motion.div>
               <span className="text-xl font-bold">PAK SOLARS</span>
             </div>
