@@ -6,8 +6,8 @@ import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'ASA Solar Center - Clean Energy for a Brighter Future',
-  description: 'Harness the power of the sun with ASA Solar Center. Premium solar panels, batteries, and installation services.',
+  title: 'Pak Solar Center - Clean Energy for a Brighter Future',
+  description: 'Harness the power of the sun with Pak Solar Center. Premium solar panels, batteries, and installation services.',
     generator: 'v0.dev'
 }
 

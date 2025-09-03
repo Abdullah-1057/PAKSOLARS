@@ -8,15 +8,15 @@ export default function Footer() {
   const companyLinks = [
     { href: '/about', label: 'About Us' },
     { href: '/contact', label: 'Contact' },
-    { href: '#', label: 'Careers' },
-    { href: '#', label: 'News' },
+    { href: '/careers', label: 'Careers' },
+    { href: '/news', label: 'News' },
   ]
 
   const productLinks = [
-    { href: '/shop', label: 'Solar Panels' },
-    { href: '/shop', label: 'Batteries' },
-    { href: '/shop', label: 'Inverters' },
-    { href: '/shop', label: 'Smart Meters' },
+    { href: '/shop?category=solar-panels', label: 'Solar Panels' },
+    { href: '/shop?category=batteries', label: 'Batteries' },
+    { href: '/shop?category=inverters', label: 'Inverters' },
+    { href: '/shop?category=smart-meters', label: 'Smart Meters' },
   ]
 
   const socialLinks = [
@@ -40,24 +40,28 @@ export default function Footer() {
               >
                 <Sun className="w-5 h-5 text-white" />
               </motion.div>
-              <span className="text-xl font-bold">ASA Solar Center</span>
+              <span className="text-xl font-bold">PAK SOLARS</span>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Leading the clean energy revolution with premium solar solutions. 
+              Leading Pakistan's clean energy revolution with premium solar solutions. 
               Harness the power of the sun for a brighter, sustainable future.
             </p>
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4 text-yellow-400" />
-                <span>123 Solar Street, Green City, GC 12345</span>
+                <span>Lahore, Punjab, Pakistan</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-yellow-400" />
-                <span>+1 (555) 123-SOLAR</span>
+                <span>M Rizwan Ali: 03007960565</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Phone className="w-4 h-4 text-yellow-400" />
+                <span>M Haris (Office Manager): 03019272576</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-yellow-400" />
-                <span>info@asasolar.com</span>
+                <span>info@paksolars.com</span>
               </div>
             </div>
           </div>
@@ -127,7 +131,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} ASA Solar Center. All rights reserved. 
+            © {new Date().getFullYear()} PAK SOLARS. All rights reserved. 
             <span className="mx-2">|</span>
             <Link href="#" className="hover:text-yellow-400 transition-colors">Privacy Policy</Link>
             <span className="mx-2">|</span>

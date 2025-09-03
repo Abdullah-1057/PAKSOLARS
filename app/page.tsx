@@ -18,7 +18,7 @@ export default function HomePage() {
         <CustomerTrustStrip />
         <HowItWorksSection />
         <OurTechnologies />
-        <WhyChooseASA />
+        <WhyChoosePak />
         <SolarProjectHighlights />
         <SavingsCalculator onGetQuote={() => setIsQuoteModalOpen(true)} />
         <NewsletterCTA onGetQuote={() => setIsQuoteModalOpen(true)} />
@@ -109,7 +109,7 @@ function HeroSection({ onGetQuote }: { onGetQuote: () => void }) {
           </h2>
           
           <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto">
-            Punjab's leading solar energy solutions. Save money, help the environment, 
+            Pakistan's leading solar energy solutions. Save money, help the environment, 
             and power your future with clean energy.
           </p>
         </motion.div>
@@ -181,7 +181,7 @@ function PriceHighlights() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-            Latest Punjab Prices - تازہ ترین قیمتیں
+            Latest Pakistan Prices - تازہ ترین قیمتیں
           </h2>
           <p className="text-lg text-gray-600">
             Transparent pricing with no hidden costs
@@ -234,14 +234,14 @@ function CustomerTrustStrip() {
     {
       icon: MapPin,
       title: "15+ Cities",
-      subtitle: "Across Punjab",
+      subtitle: "Across Pakistan",
       description: punjabPricing.citiesServed.slice(0, 5).join(", ") + "..."
     },
     {
       icon: Truck,
       title: "2-3 Days",
       subtitle: "Delivery Time",
-      description: "Fast delivery to major Punjab cities"
+      description: "Fast delivery to major Pakistan cities"
     },
     {
       icon: Clock,
@@ -466,7 +466,7 @@ function OurTechnologies() {
   )
 }
 
-function WhyChooseASA() {
+function WhyChoosePak() {
   const features = [
     {
       icon: Shield,
@@ -501,7 +501,7 @@ function WhyChooseASA() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-            Why Choose ASA Solar
+            Why Choose PAK SOLARS
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We're committed to delivering the highest quality solar solutions with unmatched service
@@ -548,7 +548,7 @@ function SolarProjectHighlights() {
     {
       id: 1,
       title: "Residential Solar Installation",
-      location: "DHA Lahore, Punjab",
+      location: "DHA Lahore, Pakistan",
       capacity: "8.5 kW",
       cost: formatPKR(calculateSystemCost(8.5).total),
       image: "/images/sectors/residential-sector.png"
@@ -556,7 +556,7 @@ function SolarProjectHighlights() {
     {
       id: 2,
       title: "Commercial Solar Array",
-      location: "Industrial Area, Faisalabad",
+      location: "Industrial Area, Faisalabad, Pakistan",
       capacity: "250 kW",
       cost: formatPKR(calculateSystemCost(250).total),
       image: "/placeholder-opzrl.png"
@@ -564,7 +564,7 @@ function SolarProjectHighlights() {
     {
       id: 3,
       title: "Community Solar Farm",
-      location: "Sahiwal, Punjab",
+      location: "Sahiwal, Pakistan",
       capacity: "2.5 MW",
       cost: formatPKR(calculateSystemCost(2500).total),
       image: "/large-solar-farm.png"
@@ -572,7 +572,7 @@ function SolarProjectHighlights() {
     {
       id: 4,
       title: "School Solar Project",
-      location: "Government School, Multan",
+      location: "Government School, Multan, Pakistan",
       capacity: "150 kW",
       cost: formatPKR(calculateSystemCost(150).total),
       image: "/placeholder-og1dg.png"
@@ -601,7 +601,7 @@ function SolarProjectHighlights() {
             Project Highlights - منصوبے کی خصوصیات
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            See our successful solar installations across Punjab
+            See our successful solar installations across Pakistan
           </p>
         </motion.div>
 
@@ -717,7 +717,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
             Solar Calculator - سولر کیلکولیٹر
           </h2>
           <p className="text-xl text-gray-600">
-            Calculate your exact savings with Punjab electricity rates
+            Calculate your exact savings with Pakistan electricity rates
           </p>
         </motion.div>
 
@@ -906,7 +906,7 @@ function NewsletterCTA({ onGetQuote }: { onGetQuote: () => void }) {
             Ready to Go Solar? - سولر کے لیے تیار ہیں؟
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Join thousands of Punjab families saving money with solar energy. 
+            Join thousands of Pakistan families saving money with solar energy. 
             Get your free quote today!
           </p>
 
@@ -940,7 +940,7 @@ function NewsletterCTA({ onGetQuote }: { onGetQuote: () => void }) {
             </div>
             <div className="flex items-center space-x-2">
               <CheckCircle className="w-4 h-4" />
-              <span>Punjab-wide Service</span>
+              <span>Pakistan-wide Service</span>
             </div>
           </div>
         </motion.div>

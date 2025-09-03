@@ -229,19 +229,19 @@ function ContactInfoSection() {
     {
       icon: MapPin,
       title: "Office Location",
-      details: ["123 Solar Street", "Green City, GC 12345"],
+      details: ["Lahore, Punjab", "Pakistan"],
       color: "text-blue-600"
     },
     {
       icon: Phone,
       title: "Phone & WhatsApp",
-      details: ["+1 (555) 123-SOLAR", "+1 (555) 123-7652"],
+      details: ["M Rizwan Ali: 03007960565", "M Haris (Office Manager): 03019272576"],
       color: "text-green-600"
     },
     {
       icon: Mail,
       title: "Email",
-      details: ["info@asasolar.com", "support@asasolar.com"],
+      details: ["info@paksolars.com", "support@paksolars.com"],
       color: "text-purple-600"
     },
     {
@@ -305,8 +305,8 @@ function ContactInfoSection() {
 
 function ServiceAreasSection() {
   const serviceAreas = [
-    "Los Angeles County", "Orange County", "San Diego County", 
-    "Riverside County", "San Bernardino County", "Ventura County"
+    "Lahore", "Karachi", "Islamabad", 
+    "Faisalabad", "Rawalpindi", "Multan", "Peshawar", "Quetta"
   ]
 
   return (
@@ -323,7 +323,7 @@ function ServiceAreasSection() {
               <span className="solar-text-gradient">Service Areas</span>
             </h2>
             <p className="text-lg text-gray-600 mb-8">
-              We proudly serve customers across Southern California with professional 
+              We proudly serve customers across Pakistan with professional 
               solar installation and maintenance services.
             </p>
             

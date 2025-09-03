@@ -32,8 +32,8 @@ function HeroSection() {
             <span className="solar-text-gradient">Who We Are</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            ASA Solar Center has been pioneering clean energy solutions for over a decade, 
-            helping thousands of families and businesses transition to sustainable solar power.
+            PAK SOLARS has been pioneering clean energy solutions for over a decade, 
+            helping thousands of families and businesses transition to sustainable solar power across Pakistan.
           </p>
         </motion.div>
       </div>
@@ -176,9 +176,9 @@ function FounderSection() {
             </h2>
             
             <blockquote className="text-lg text-gray-600 italic border-l-4 border-yellow-400 pl-6">
-              "I founded ASA Solar Center with a simple belief: everyone deserves access to clean, 
+              "We founded PAK SOLARS with a simple belief: everyone deserves access to clean, 
               affordable energy. Solar power isn't just about saving money—it's about creating a 
-              sustainable future for our children and grandchildren."
+              sustainable future for our children and grandchildren across Pakistan."
             </blockquote>
             
             <div className="space-y-4">
@@ -196,8 +196,10 @@ function FounderSection() {
               </div>
             </div>
 
-            <div className="pt-4">
-              <p className="font-semibold text-[#003049]">— Sarah Johnson, CEO & Founder</p>
+            <div className="pt-4 space-y-2">
+              <p className="font-semibold text-[#003049]">— Muhammad Rizwan Ali, Director</p>
+              <p className="font-semibold text-[#003049]">— Muhammad Inaam Ur Rehman, Director</p>
+              <p className="font-semibold text-[#003049]">— Rana Imran Zafar, Finance Consultant</p>
             </div>
           </motion.div>
         </div>
@@ -309,8 +311,8 @@ function TestimonialSection() {
           <Quote className="w-16 h-16 text-yellow-400 mx-auto mb-6" />
           
           <blockquote className="text-2xl md:text-3xl font-light text-gray-700 mb-8 leading-relaxed">
-            "ASA Solar Center transformed our home and our energy bills. The installation was 
-            seamless, the team was professional, and we're now saving over $200 every month. 
+            "PAK SOLARS transformed our home and our energy bills. The installation was 
+            seamless, the team was professional, and we're now saving over Rs. 15,000 every month. 
             It's amazing to know we're also helping the environment!"
           </blockquote>
           
@@ -321,8 +323,8 @@ function TestimonialSection() {
               className="w-15 h-15 rounded-full object-cover"
             />
             <div className="text-left">
-              <p className="font-semibold text-[#003049]">Michael & Jennifer Chen</p>
-              <p className="text-gray-600">Homeowners, San Diego</p>
+              <p className="font-semibold text-[#003049]">Ahmed & Fatima Khan</p>
+              <p className="text-gray-600">Homeowners, Lahore</p>
               <div className="flex text-yellow-400 mt-1">
                 {[...Array(5)].map((_, i) => (
                   <span key={i}>★</span>

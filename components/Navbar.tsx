@@ -52,7 +52,7 @@ export default function Navbar() {
                 <Sun className="w-5 h-5 text-white" />
               </motion.div>
               <span className="text-xl font-bold text-gray-900">
-                ASA Solar
+                PAK SOLARS
               </span>
             </Link>
 
