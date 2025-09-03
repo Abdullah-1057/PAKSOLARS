@@ -2,10 +2,10 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useState, useRef } from 'react'
-import { Sun, Battery, Zap, Activity, Shield, Users, Eye, Leaf, ChevronLeft, ChevronRight, Calculator, Mail, MapPin, Clock, Truck, CheckCircle, ArrowRight, Star } from 'lucide-react'
+import { Sun, Battery, Zap, Activity, Shield, Users, Eye, Leaf, ChevronLeft, ChevronRight, Calculator, Mail, MapPin, Clock, Truck, CheckCircle, ArrowRight, Star, Phone } from 'lucide-react'
 import PageTransitionWrapper from '@/components/PageTransitionWrapper'
 import QuoteModal from '@/components/QuoteModal'
-import { punjabPricing, formatPKR, calculateSystemCost } from '@/config/pricing-punjab'
+import { formatPKR } from '@/config/pricing-punjab'
 
 export default function HomePage() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
@@ -146,25 +146,22 @@ function PriceHighlights() {
   const priceHighlights = [
     {
       title: "Solar Panels",
-      subtitle: "Monocrystalline",
-      price: punjabPricing.solarPanels.monocrystalline.pricePerWatt,
-      unit: "per watt",
+      subtitle: "High Efficiency",
+      description: "Premium quality panels with 25-year warranty",
       badge: "Most Popular",
       icon: Sun
     },
     {
-      title: "Complete 5kW System",
+      title: "Complete Systems",
       subtitle: "Installation Included",
-      price: calculateSystemCost(5).total,
-      unit: "total cost",
+      description: "Full solar system with professional installation",
       badge: "Best Value",
       icon: Battery
     },
     {
       title: "Inverters",
-      subtitle: "String Inverter",
-      price: punjabPricing.inverters.string.pricePerKw,
-      unit: "per kW",
+      subtitle: "Grid-Tie Ready",
+      description: "High-efficiency inverters with smart monitoring",
       badge: "Reliable",
       icon: Zap
     }
@@ -181,10 +178,10 @@ function PriceHighlights() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-            Latest Pakistan Prices - تازہ ترین قیمتیں
+            Our Solar Solutions - ہمارے سولر حل
           </h2>
           <p className="text-lg text-gray-600">
-            Transparent pricing with no hidden costs
+            Premium solar products with transparent pricing
           </p>
         </motion.div>
 
@@ -216,10 +213,10 @@ function PriceHighlights() {
               </div>
 
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-1">
-                  {formatPKR(item.price)}
+                <p className="text-gray-600 text-sm mb-3">{item.description}</p>
+                <div className="text-sm text-blue-600 font-medium">
+                  Contact us for pricing
                 </div>
-                <div className="text-sm text-gray-500">{item.unit}</div>
               </div>
             </motion.div>
           ))}
@@ -235,7 +232,7 @@ function CustomerTrustStrip() {
       icon: MapPin,
       title: "15+ Cities",
       subtitle: "Across Pakistan",
-      description: punjabPricing.citiesServed.slice(0, 5).join(", ") + "..."
+      description: "Lahore, Karachi, Islamabad, Faisalabad, Rawalpindi..."
     },
     {
       icon: Truck,
@@ -375,32 +372,24 @@ function OurTechnologies() {
       icon: Sun,
       title: "Solar Panels",
       description: "High-efficiency photovoltaic panels that convert sunlight into clean electricity",
-      price: formatPKR(punjabPricing.solarPanels.monocrystalline.pricePerWatt),
-      unit: "per watt",
       features: ["25-Year Warranty", "Weather Resistant", "22% Efficiency"]
     },
     {
       icon: Battery,
       title: "Solar Batteries",
       description: "Store excess energy for use during nighttime or power outages",
-      price: formatPKR(punjabPricing.batteries.lithium.pricePerKwh),
-      unit: "per kWh",
       features: ["15-Year Lifespan", "Fast Charging", "Smart Management"]
     },
     {
       icon: Zap,
       title: "Inverters",
       description: "Convert DC power from panels into AC power for your home",
-      price: formatPKR(punjabPricing.inverters.string.pricePerKw),
-      unit: "per kW",
       features: ["Grid-Tie Ready", "97% Efficiency", "10-Year Warranty"]
     },
     {
       icon: Activity,
       title: "Smart Meters",
       description: "Monitor your energy production and consumption in real-time",
-      price: formatPKR(15000),
-      unit: "complete unit",
       features: ["Real-Time Data", "Mobile App", "Usage Analytics"]
     }
   ]
@@ -446,8 +435,8 @@ function OurTechnologies() {
               <p className="text-gray-600 mb-4 text-sm">{tech.description}</p>
               
               <div className="mb-4 p-3 bg-blue-50 rounded-lg">
-                <div className="text-lg font-bold text-blue-600">{tech.price}</div>
-                <div className="text-xs text-gray-500">{tech.unit}</div>
+                <div className="text-sm font-medium text-blue-600">Contact for pricing</div>
+                <div className="text-xs text-gray-500">Custom quotes available</div>
               </div>
               
               <ul className="space-y-1">
@@ -550,7 +539,6 @@ function SolarProjectHighlights() {
       title: "Residential Solar Installation",
       location: "DHA Lahore, Pakistan",
       capacity: "8.5 kW",
-      cost: formatPKR(calculateSystemCost(8.5).total),
       image: "/images/sectors/residential-sector.png"
     },
     {
@@ -558,7 +546,6 @@ function SolarProjectHighlights() {
       title: "Commercial Solar Array",
       location: "Industrial Area, Faisalabad, Pakistan",
       capacity: "250 kW",
-      cost: formatPKR(calculateSystemCost(250).total),
       image: "/placeholder-opzrl.png"
     },
     {
@@ -566,7 +553,6 @@ function SolarProjectHighlights() {
       title: "Community Solar Farm",
       location: "Sahiwal, Pakistan",
       capacity: "2.5 MW",
-      cost: formatPKR(calculateSystemCost(2500).total),
       image: "/large-solar-farm.png"
     },
     {
@@ -574,7 +560,6 @@ function SolarProjectHighlights() {
       title: "School Solar Project",
       location: "Government School, Multan, Pakistan",
       capacity: "150 kW",
-      cost: formatPKR(calculateSystemCost(150).total),
       image: "/placeholder-og1dg.png"
     }
   ]
@@ -630,7 +615,7 @@ function SolarProjectHighlights() {
                           {project.capacity}
                         </div>
                         <div className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                          {project.cost}
+                          Contact for Quote
                         </div>
                       </div>
                     </motion.div>
@@ -689,19 +674,35 @@ function SolarProjectHighlights() {
 }
 
 function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
-  const [monthlyBill, setMonthlyBill] = useState(15000) // PKR
-  const [systemSize, setSystemSize] = useState(5) // kW
-  const [selectedCity, setSelectedCity] = useState('lahore')
+  // User input states for all pricing
+  const [panelPricePerWatt, setPanelPricePerWatt] = useState(45) // PKR per watt
+  const [wattsPerPanel, setWattsPerPanel] = useState(550) // watts per panel
+  const [numberOfPanels, setNumberOfPanels] = useState(9) // number of panels
+  const [installationFeePerWatt, setInstallationFeePerWatt] = useState(15) // PKR per watt
+  const [inverterPrice, setInverterPrice] = useState(125000) // PKR fixed price
+  const [batteryPrice, setBatteryPrice] = useState(350000) // PKR fixed price
+  const [materialCost, setMaterialCost] = useState(25000) // PKR for cables, mounting, etc.
+  const [gstRate, setGstRate] = useState(17) // percentage
+  const [deliveryFee, setDeliveryFee] = useState(5000) // PKR
+  const [electricityRate, setElectricityRate] = useState(25) // PKR per unit
+  const [sunHoursPerDay, setSunHoursPerDay] = useState(4.5) // hours per day
+  const [unitPrice, setUnitPrice] = useState(25) // PKR per unit for savings calculation
   
-  // Calculate detailed breakdown
-  const systemCost = calculateSystemCost(systemSize, 'monocrystalline', 0, 'lithium', 'string', selectedCity)
+  // Calculate system size from panels
+  const systemSize = Math.max(0, (numberOfPanels * wattsPerPanel) / 1000) // kW
   
-  // Calculate monthly savings based on electricity rates
-  const avgElectricityRate = 25 // PKR per unit
-  const monthlyUnitsGenerated = systemSize * 4.5 * 30 // Assuming 4.5 hours of sun per day
-  const monthlySavings = monthlyUnitsGenerated * avgElectricityRate
-  const yearlySavings = monthlySavings * 12
-  const paybackPeriod = Math.round(systemCost.total / yearlySavings)
+  // Calculate costs with safety checks
+  const panelCost = Math.max(0, numberOfPanels * wattsPerPanel * panelPricePerWatt)
+  const installationCost = Math.max(0, systemSize * 1000 * installationFeePerWatt)
+  const subtotal = Math.max(0, panelCost + installationCost + inverterPrice + batteryPrice + materialCost + deliveryFee)
+  const gstAmount = Math.max(0, (subtotal * gstRate) / 100)
+  const totalCost = Math.max(0, subtotal + gstAmount)
+  
+  // Calculate savings with safety checks
+  const monthlyUnitsGenerated = Math.max(0, systemSize * sunHoursPerDay * 30)
+  const monthlySavings = Math.max(0, monthlyUnitsGenerated * unitPrice)
+  const yearlySavings = Math.max(0, monthlySavings * 12)
+  const paybackPeriod = (totalCost > 0 && yearlySavings > 0) ? Math.round(totalCost / yearlySavings) : 0
 
   return (
     <section className="py-20 bg-white">
@@ -730,62 +731,187 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Input Section */}
-            <div className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Monthly Electric Bill (PKR)
-                </label>
-                <input
-                  type="range"
-                  min="5000"
-                  max="50000"
-                  step="1000"
-                  value={monthlyBill}
-                  onChange={(e) => setMonthlyBill(Number(e.target.value))}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                />
-                <div className="flex justify-between text-sm text-gray-500 mt-1">
-                  <span>₨5,000</span>
-                  <span className="font-medium text-blue-600">{formatPKR(monthlyBill)}</span>
-                  <span>₨50,000</span>
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold text-[#003049] mb-4 flex items-center">
+                <Calculator className="w-5 h-5 mr-2" />
+                Solar System Configuration
+              </h3>
+              
+              {/* Panel Configuration */}
+              <div className="bg-blue-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-blue-800 mb-3">Panel Configuration</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Panel Price per Watt (PKR)
+                    </label>
+                    <input
+                      type="number"
+                      value={panelPricePerWatt}
+                      onChange={(e) => setPanelPricePerWatt(Math.max(0, Number(e.target.value) || 0))}
+                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+                      min="0"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Watts per Panel
+                    </label>
+                    <input
+                      type="number"
+                      value={wattsPerPanel}
+                      onChange={(e) => setWattsPerPanel(Math.max(0, Number(e.target.value) || 0))}
+                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+                      min="0"
+                    />
+                  </div>
+                  <div className="md:col-span-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Number of Panels
+                    </label>
+                    <input
+                      type="number"
+                      value={numberOfPanels}
+                      onChange={(e) => setNumberOfPanels(Math.max(1, Number(e.target.value) || 1))}
+                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+                      min="1"
+                    />
+                  </div>
+                </div>
+                <div className="mt-2 text-sm text-blue-600">
+                  Total System Size: <strong>{systemSize.toFixed(2)} kW</strong>
                 </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  System Size (kW)
-                </label>
-                <input
-                  type="range"
-                  min="3"
-                  max="20"
-                  step="0.5"
-                  value={systemSize}
-                  onChange={(e) => setSystemSize(Number(e.target.value))}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                />
-                <div className="flex justify-between text-sm text-gray-500 mt-1">
-                  <span>3 kW</span>
-                  <span className="font-medium text-blue-600">{systemSize} kW</span>
-                  <span>20 kW</span>
+              {/* Installation & Equipment */}
+              <div className="bg-green-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-green-800 mb-3">Installation & Equipment</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Installation Fee per Watt (PKR)
+                    </label>
+                    <input
+                      type="number"
+                      value={installationFeePerWatt}
+                      onChange={(e) => setInstallationFeePerWatt(Math.max(0, Number(e.target.value) || 0))}
+                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-500"
+                      min="0"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Inverter Price (PKR) - Fixed Price
+                    </label>
+                    <input
+                      type="number"
+                      value={inverterPrice}
+                      onChange={(e) => setInverterPrice(Math.max(0, Number(e.target.value) || 0))}
+                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-500"
+                      min="0"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Battery Price (PKR) - Fixed Price
+                    </label>
+                    <input
+                      type="number"
+                      value={batteryPrice}
+                      onChange={(e) => setBatteryPrice(Math.max(0, Number(e.target.value) || 0))}
+                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-500"
+                      min="0"
+                    />
+                  </div>
+                  <div className="md:col-span-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Material Cost (PKR) - Cables, Mounting, etc.
+                    </label>
+                    <input
+                      type="number"
+                      value={materialCost}
+                      onChange={(e) => setMaterialCost(Math.max(0, Number(e.target.value) || 0))}
+                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-500"
+                      min="0"
+                    />
+                  </div>
                 </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Your City
-                </label>
-                <select
-                  value={selectedCity}
-                  onChange={(e) => setSelectedCity(e.target.value)}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-                  {punjabPricing.citiesServed.map((city) => (
-                    <option key={city} value={city.toLowerCase()}>
-                      {city}
-                    </option>
-                  ))}
-                </select>
+              {/* Additional Costs */}
+              <div className="bg-yellow-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-yellow-800 mb-3">Additional Costs</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      GST Rate (%)
+                    </label>
+                    <input
+                      type="number"
+                      value={gstRate}
+                      onChange={(e) => setGstRate(Math.max(0, Math.min(100, Number(e.target.value) || 0)))}
+                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-yellow-500"
+                      min="0"
+                      max="100"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Delivery Fee (PKR)
+                    </label>
+                    <input
+                      type="number"
+                      value={deliveryFee}
+                      onChange={(e) => setDeliveryFee(Math.max(0, Number(e.target.value) || 0))}
+                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-yellow-500"
+                      min="0"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Savings Calculation */}
+              <div className="bg-purple-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-purple-800 mb-3">Savings Calculation</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Electricity Rate (PKR per unit)
+                    </label>
+                    <input
+                      type="number"
+                      value={electricityRate}
+                      onChange={(e) => setElectricityRate(Math.max(0, Number(e.target.value) || 0))}
+                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-purple-500"
+                      min="0"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Sun Hours per Day
+                    </label>
+                    <input
+                      type="number"
+                      value={sunHoursPerDay}
+                      onChange={(e) => setSunHoursPerDay(Math.max(0, Number(e.target.value) || 0))}
+                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-purple-500"
+                      min="0"
+                      step="0.1"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Unit Price (PKR) - For Savings Calculation
+                    </label>
+                    <input
+                      type="number"
+                      value={unitPrice}
+                      onChange={(e) => setUnitPrice(Math.max(0, Number(e.target.value) || 0))}
+                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-purple-500"
+                      min="0"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -793,40 +919,70 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
             <div className="space-y-4">
               <h3 className="text-xl font-bold text-[#003049] mb-4 flex items-center">
                 <Calculator className="w-5 h-5 mr-2" />
-                Detailed Cost Breakdown
+                Cost Breakdown & Savings
               </h3>
               
               {/* System Cost Breakdown */}
               <div className="bg-gray-50 p-4 rounded-lg space-y-2">
+                <h4 className="font-semibold text-gray-800 mb-3">Cost Breakdown</h4>
                 <div className="flex justify-between text-sm">
-                  <span>Solar Panels ({systemSize} kW):</span>
-                  <span className="font-medium">{formatPKR(systemCost.panelCost)}</span>
+                  <span>Solar Panels ({numberOfPanels} × {wattsPerPanel}W):</span>
+                  <span className="font-medium">{formatPKR(panelCost)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span>Inverter:</span>
-                  <span className="font-medium">{formatPKR(systemCost.inverterCost)}</span>
+                  <span>Installation ({systemSize.toFixed(2)} kW):</span>
+                  <span className="font-medium">{formatPKR(installationCost)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span>Installation:</span>
-                  <span className="font-medium">{formatPKR(systemCost.installationCost)}</span>
+                  <span>Inverter (Fixed Price):</span>
+                  <span className="font-medium">{formatPKR(inverterPrice)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span>GST (17%):</span>
-                  <span className="font-medium">{formatPKR(systemCost.gstAmount)}</span>
+                  <span>Battery (Fixed Price):</span>
+                  <span className="font-medium">{formatPKR(batteryPrice)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span>Delivery to {selectedCity}:</span>
-                  <span className="font-medium">{formatPKR(systemCost.deliveryCost)}</span>
+                  <span>Material Cost:</span>
+                  <span className="font-medium">{formatPKR(materialCost)}</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span>Delivery Fee:</span>
+                  <span className="font-medium">{formatPKR(deliveryFee)}</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span>Subtotal:</span>
+                  <span className="font-medium">{formatPKR(subtotal)}</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span>GST ({gstRate}%):</span>
+                  <span className="font-medium">{formatPKR(gstAmount)}</span>
                 </div>
                 <hr className="my-2" />
                 <div className="flex justify-between font-bold text-lg">
                   <span>Total System Cost:</span>
-                  <span className="text-blue-600">{formatPKR(systemCost.total)}</span>
+                  <span className="text-blue-600">{formatPKR(totalCost)}</span>
+                </div>
+              </div>
+
+              {/* System Specifications */}
+              <div className="bg-blue-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-blue-800 mb-3">System Specifications</h4>
+                <div className="grid grid-cols-2 gap-2 text-sm mb-3">
+                  <div>Total Panels: <strong>{numberOfPanels}</strong></div>
+                  <div>System Size: <strong>{systemSize.toFixed(2)} kW</strong></div>
+                  <div>Panel Power: <strong>{wattsPerPanel}W each</strong></div>
+                  <div>Battery: <strong>Included</strong></div>
+                </div>
+                <div className="bg-green-100 p-3 rounded-lg">
+                  <div className="text-sm text-green-800">
+                    <strong>Note:</strong> 1kW system typically saves ~100 units per month
+                  </div>
                 </div>
               </div>
 
               {/* Savings Breakdown */}
               <div className="space-y-3">
+                <h4 className="font-semibold text-gray-800">Savings Projection</h4>
                 <motion.div
                   className="bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-lg border border-green-200"
                 >
@@ -834,6 +990,9 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
                     {formatPKR(monthlySavings)}/month
                   </div>
                   <div className="text-sm text-gray-600">Monthly Savings</div>
+                  <div className="text-xs text-gray-500 mt-1">
+                    {monthlyUnitsGenerated.toFixed(0)} units × {unitPrice} PKR
+                  </div>
                 </motion.div>
 
                 <motion.div
@@ -872,8 +1031,6 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
 }
 
 function NewsletterCTA({ onGetQuote }: { onGetQuote: () => void }) {
-  const [email, setEmail] = useState('')
-
   return (
     <section className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 solar-gradient opacity-90" />
@@ -907,26 +1064,29 @@ function NewsletterCTA({ onGetQuote }: { onGetQuote: () => void }) {
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
             Join thousands of Pakistan families saving money with solar energy. 
-            Get your free quote today!
+            Contact us for your free quote today!
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <motion.button
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+            <motion.a
+              href="tel:03007960565"
               whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(253, 186, 33, 0.3)" }}
               whileTap={{ scale: 0.95 }}
-              onClick={onGetQuote}
-              className="bg-[#FDBA21] text-[#003049] px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition-colors duration-200"
+              className="bg-[#FDBA21] text-[#003049] px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition-colors duration-200 flex items-center"
             >
-              Get Free Quote - مفت قیمت
-            </motion.button>
+              <Phone className="w-5 h-5 mr-2" />
+              Call M Rizwan Ali: 03007960565
+            </motion.a>
             
-            <motion.button
+            <motion.a
+              href="tel:03019272576"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-[#003049] transition-all duration-200"
+              className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-[#003049] transition-all duration-200 flex items-center"
             >
-              Call Now - ابھی کال کریں
-            </motion.button>
+              <Phone className="w-5 h-5 mr-2" />
+              Call M Haris: 03019272576
+            </motion.a>
           </div>
 
           <div className="mt-8 flex items-center justify-center space-x-8 text-sm text-white/70">

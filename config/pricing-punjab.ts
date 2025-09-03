@@ -98,12 +98,13 @@ export const punjabPricing = {
 
 // Utility functions for pricing
 export const formatPKR = (amount: number): string => {
-  return new Intl.NumberFormat('en-PK', {
-    style: 'currency',
-    currency: 'PKR',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(amount).replace('PKR', '₨')
+  if (typeof amount !== 'number' || isNaN(amount)) {
+    return '₨0'
+  }
+  
+  // Simple formatting without Intl to avoid SSR issues
+  const formatted = Math.round(amount).toLocaleString('en-US')
+  return `₨${formatted}`
 }
 
 export const calculateSystemCost = (

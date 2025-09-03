@@ -5,12 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Filter, ShoppingCart, Star, Award, Zap, Battery, Sun, Activity, MapPin, Truck } from 'lucide-react'
 import PageTransitionWrapper from '@/components/PageTransitionWrapper'
 import QuoteModal from '@/components/QuoteModal'
-import { punjabPricing, formatPKR } from '@/config/pricing-punjab'
+import { formatPKR } from '@/config/pricing-punjab'
 
 export default function ShopPage() {
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [selectedBrand, setSelectedBrand] = useState('all')
-  const [priceRange, setPriceRange] = useState([0, 500000])
+
   const [isFilterOpen, setIsFilterOpen] = useState(false)
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
 
@@ -20,8 +20,6 @@ export default function ShopPage() {
       name: "Premium Monocrystalline Solar Panel 400W",
       category: "panel",
       brand: "Jinko Solar",
-      price: punjabPricing.solarPanels.monocrystalline.pricePerWatt * 400,
-      originalPrice: 38000,
       rating: 4.9,
       reviews: 156,
       badge: "Best Seller",
@@ -34,32 +32,29 @@ export default function ShopPage() {
       name: "Lithium Solar Battery 10kWh",
       category: "battery",
       brand: "BYD",
-      price: punjabPricing.batteries.lithium.pricePerKwh * 10,
       rating: 4.8,
       reviews: 89,
       badge: "Premium",
       image: "/placeholder.svg?height=300&width=300",
       features: ["15-Year Lifespan", "10-Year Warranty", "App Control"],
-      deliveryNote: "Installation included in major Punjab cities"
+      deliveryNote: "Installation included in major Pakistan cities"
     },
     {
       id: 3,
       name: "String Inverter 5kW",
       category: "inverter",
       brand: "Growatt",
-      price: punjabPricing.inverters.string.pricePerKw * 5,
       rating: 4.7,
       reviews: 234,
       image: "/placeholder.svg?height=300&width=300",
       features: ["Grid-Tie Ready", "97% Efficiency", "10-Year Warranty"],
-      deliveryNote: "2-3 days delivery across Punjab"
+      deliveryNote: "2-3 days delivery across Pakistan"
     },
     {
       id: 4,
       name: "Smart Energy Monitor Pro",
       category: "meter",
       brand: "Eastron",
-      price: 15000,
       rating: 4.6,
       reviews: 178,
       badge: "New",
@@ -72,19 +67,17 @@ export default function ShopPage() {
       name: "Polycrystalline Solar Panel 350W",
       category: "panel",
       brand: "Canadian Solar",
-      price: punjabPricing.solarPanels.polycrystalline.pricePerWatt * 350,
       rating: 4.8,
       reviews: 203,
       image: "/placeholder.svg?height=300&width=300",
       features: ["25-Year Warranty", "18% Efficiency", "Hail Resistant"],
-      deliveryNote: "Available in all Punjab cities"
+      deliveryNote: "Available in all Pakistan cities"
     },
     {
       id: 6,
       name: "Lead Acid Battery Bank 200Ah",
       category: "battery",
       brand: "Exide",
-      price: 85000,
       rating: 4.4,
       reviews: 67,
       image: "/placeholder.svg?height=300&width=300",
@@ -96,7 +89,6 @@ export default function ShopPage() {
       name: "Micro Inverter 300W",
       category: "inverter",
       brand: "Enphase",
-      price: 7500,
       rating: 4.5,
       reviews: 145,
       image: "/placeholder.svg?height=300&width=300",
@@ -108,7 +100,6 @@ export default function ShopPage() {
       name: "Basic Energy Meter",
       category: "meter",
       brand: "Local",
-      price: 8500,
       rating: 4.2,
       reviews: 92,
       image: "/placeholder.svg?height=300&width=300",
@@ -130,8 +121,7 @@ export default function ShopPage() {
   const filteredProducts = products.filter(product => {
     const categoryMatch = selectedCategory === 'all' || product.category === selectedCategory
     const brandMatch = selectedBrand === 'all' || product.brand === selectedBrand
-    const priceMatch = product.price >= priceRange[0] && product.price <= priceRange[1]
-    return categoryMatch && brandMatch && priceMatch
+    return categoryMatch && brandMatch
   })
 
   const getBadgeColor = (badge: string) => {
@@ -158,7 +148,7 @@ export default function ShopPage() {
               Solar Shop - سولر شاپ
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Premium solar equipment with Punjab pricing and fast delivery
+              Premium solar equipment with fast delivery across Pakistan
             </p>
           </motion.div>
 
@@ -220,26 +210,7 @@ export default function ShopPage() {
                     </select>
                   </div>
 
-                  {/* Price Range */}
-                  <div>
-                    <h3 className="text-lg font-semibold mb-4 text-[#003049]">Price Range</h3>
-                    <div className="space-y-4">
-                      <input
-                        type="range"
-                        min="0"
-                        max="500000"
-                        step="5000"
-                        value={priceRange[1]}
-                        onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
-                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                      />
-                      <div className="flex justify-between text-sm text-gray-600">
-                        <span>₨0</span>
-                        <span className="font-medium text-blue-600">{formatPKR(priceRange[1])}</span>
-                        <span>₨5,00,000+</span>
-                      </div>
-                    </div>
-                  </div>
+
                 </motion.div>
               </AnimatePresence>
             </div>
@@ -314,10 +285,7 @@ export default function ShopPage() {
 
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center space-x-2">
-                            <span className="text-2xl font-bold text-[#003049]">{formatPKR(product.price)}</span>
-                            {product.originalPrice && (
-                              <span className="text-sm text-gray-500 line-through">{formatPKR(product.originalPrice)}</span>
-                            )}
+                            <span className="text-lg font-bold text-blue-600">Contact for Pricing</span>
                           </div>
                         </div>
 
