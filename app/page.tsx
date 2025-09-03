@@ -739,7 +739,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
               </h3>
               
               {/* Panel Configuration */}
-              <div className="bg-blue-50 p-4 rounded-lg">
+              <div className="bg-gradient-to-br from-blue-100 to-cyan-100 p-4 rounded-lg border border-blue-200">
                 <h4 className="font-semibold text-blue-800 mb-3">Panel Configuration</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -750,7 +750,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
                       type="number"
                       value={panelPricePerWatt}
                       onChange={(e) => setPanelPricePerWatt(Math.max(0, Number(e.target.value) || 0))}
-                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-600"
                       min="0"
                     />
                   </div>
@@ -762,7 +762,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
                       type="number"
                       value={wattsPerPanel}
                       onChange={(e) => setWattsPerPanel(Math.max(0, Number(e.target.value) || 0))}
-                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-600"
                       min="0"
                     />
                   </div>
@@ -774,7 +774,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
                       type="number"
                       value={numberOfPanels}
                       onChange={(e) => setNumberOfPanels(Math.max(1, Number(e.target.value) || 1))}
-                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-600"
                       min="1"
                     />
                   </div>
@@ -785,7 +785,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
               </div>
 
               {/* Installation & Equipment */}
-              <div className="bg-green-50 p-4 rounded-lg">
+              <div className="bg-gradient-to-br from-green-100 to-emerald-100 p-4 rounded-lg border border-green-200">
                 <h4 className="font-semibold text-green-800 mb-3">Installation & Equipment</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -796,7 +796,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
                       type="number"
                       value={installationFeePerWatt}
                       onChange={(e) => setInstallationFeePerWatt(Math.max(0, Number(e.target.value) || 0))}
-                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-500"
+                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-600"
                       min="0"
                     />
                   </div>
@@ -808,7 +808,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
                       type="number"
                       value={inverterPrice}
                       onChange={(e) => setInverterPrice(Math.max(0, Number(e.target.value) || 0))}
-                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-500"
+                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-600"
                       min="0"
                     />
                   </div>
@@ -820,7 +820,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
                       type="number"
                       value={batteryPrice}
                       onChange={(e) => setBatteryPrice(Math.max(0, Number(e.target.value) || 0))}
-                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-500"
+                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-600"
                       min="0"
                     />
                   </div>
@@ -832,7 +832,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
                       type="number"
                       value={materialCost}
                       onChange={(e) => setMaterialCost(Math.max(0, Number(e.target.value) || 0))}
-                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-500"
+                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-600"
                       min="0"
                     />
                   </div>
@@ -840,7 +840,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
               </div>
 
               {/* Additional Costs */}
-              <div className="bg-yellow-50 p-4 rounded-lg">
+              <div className="bg-gradient-to-br from-yellow-100 to-orange-100 p-4 rounded-lg border border-yellow-200">
                 <h4 className="font-semibold text-yellow-800 mb-3">Additional Costs</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -872,7 +872,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
               </div>
 
               {/* Savings Calculation */}
-              <div className="bg-purple-50 p-4 rounded-lg">
+              <div className="bg-gradient-to-br from-purple-100 to-pink-100 p-4 rounded-lg border border-purple-200">
                 <h4 className="font-semibold text-purple-800 mb-3">Savings Calculation</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
@@ -884,7 +884,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
                       type="number"
                       value={unitPrice}
                       onChange={(e) => setUnitPrice(Math.max(0, Number(e.target.value) || 0))}
-                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-purple-500"
+                      className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-purple-600"
                       min="0"
                     />
                     <div className="text-xs text-gray-500 mt-1">
@@ -903,7 +903,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
               </h3>
               
               {/* System Cost Breakdown */}
-              <div className="bg-gray-50 p-4 rounded-lg space-y-2">
+              <div className="bg-gradient-to-br from-gray-100 to-slate-100 p-4 rounded-lg border border-gray-200 space-y-2">
                 <h4 className="font-semibold text-gray-800 mb-3">Cost Breakdown</h4>
                 <div className="flex justify-between text-sm">
                   <span>Solar Panels ({numberOfPanels} × {wattsPerPanel}W):</span>
@@ -945,7 +945,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
               </div>
 
               {/* System Specifications */}
-              <div className="bg-blue-50 p-4 rounded-lg">
+              <div className="bg-gradient-to-br from-blue-100 to-indigo-100 p-4 rounded-lg border border-blue-200">
                 <h4 className="font-semibold text-blue-800 mb-3">System Specifications</h4>
                 <div className="grid grid-cols-2 gap-2 text-sm mb-3">
                   <div>Total Panels: <strong>{numberOfPanels}</strong></div>
@@ -964,7 +964,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-800">Savings Projection</h4>
                 <motion.div
-                  className="bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-lg border border-green-200"
+                  className="bg-gradient-to-r from-green-100 to-emerald-100 p-4 rounded-lg border border-green-300 shadow-lg"
                 >
                   <div className="text-2xl font-bold text-green-600">
                     {formatPKR(monthlySavings)}/month
@@ -976,7 +976,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
                 </motion.div>
 
                 <motion.div
-                  className="bg-gradient-to-r from-yellow-50 to-blue-50 p-4 rounded-lg"
+                  className="bg-gradient-to-r from-yellow-100 to-blue-100 p-4 rounded-lg border border-yellow-300 shadow-lg"
                 >
                   <div className="text-2xl font-bold text-blue-600">
                     {formatPKR(yearlySavings)}
@@ -985,7 +985,7 @@ function SavingsCalculator({ onGetQuote }: { onGetQuote: () => void }) {
                 </motion.div>
 
                 <motion.div
-                  className="bg-gradient-to-r from-purple-50 to-blue-50 p-4 rounded-lg"
+                  className="bg-gradient-to-r from-purple-100 to-pink-100 p-4 rounded-lg border border-purple-300 shadow-lg"
                 >
                   <div className="text-2xl font-bold text-purple-600">
                     {paybackPeriod.toFixed(1)} years
